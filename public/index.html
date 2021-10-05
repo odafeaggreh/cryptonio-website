@@ -961,48 +961,8 @@
                   over-the-counter market for the trading of currencies or
                   making predictions on assets or stocks and cryptocurrency.
                 </p>
-                <div
-                  class="contact-items"
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    margin: 20px 0;
-                  "
-                >
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      text-align: center;
-                    "
-                  >
-                    <span class="material-icons" style="margin-right: 5px">
-                      call
-                    </span>
-                    <a href="tel: +1(3456) 6455 577" style="color: white"
-                      >+1(3456)6455-577</a
-                    >
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      text-align: center;
-                    "
-                  >
-                    <span class="material-icons" style="margin-right: 5px">
-                      email
-                    </span>
-                    <a
-                      href="mailto: corexinvestmenttrading@gmail.com"
-                      style="color: white"
-                      >support@corexinvestmenttradingltd.com</a
-                    >
-                  </div>
+                <div id="contactInfo">
+                  
                 </div>
               </div>
 
@@ -1052,6 +1012,42 @@
     <script src="js/assets/smooth-scroll.js"></script>
     <script src="js/assets/wow.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="js/vendors.min.js"></script>
+    <script src="js/pages/chat-popup.js"></script>
+    <script src="../assets/icons/feather-icons/feather.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCNlAj1-2iQ4Vjg1EAEzUxauMlcncUnq2Y",
+        authDomain: "corexinvestmenttradingltd.firebaseapp.com",
+        projectId: "corexinvestmenttradingltd",
+        storageBucket: "corexinvestmenttradingltd.appspot.com",
+        messagingSenderId: "528040323462",
+        appId: "1:528040323462:web:ca59e97367f78d5e576407",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // initialize firebase auth and firestore
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+
+      // update firestor settings
+      db.settings({ timeStampsInSnapshots: true });
+    </script>
+
+    <!-- Firebase script -->
+    <script src="./js/firebaseFile.js"></script>
 
     <!-- GetButton.io widget -->
     <script type="text/javascript">

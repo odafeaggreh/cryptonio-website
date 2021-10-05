@@ -1,7 +1,7 @@
 auth.onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
-    console.log("User is signed in successfully with: " + user.email);
+    setUpDashboard(user);
   } else {
     // User is signed out.
     console.log("User is signed out");
