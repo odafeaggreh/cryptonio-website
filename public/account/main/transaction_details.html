@@ -117,14 +117,7 @@
                   title="User"
                 >
                   <div class="d-flex pt-5">
-                    <div class="text-end me-10">
-                      <p class="pt-5 fs-14 mb-0 fw-700 text-primary">
-                        Johen Doe
-                      </p>
-                      <small class="fs-10 mb-0 text-uppercase text-mute"
-                        >User</small
-                      >
-                    </div>
+                    <div class="text-end me-10" id="userName"></div>
                     <img
                       src="../images/avatar/avatar-1.png"
                       class="avatar rounded-10 bg-primary-light h-40 w-40"
@@ -222,7 +215,11 @@
               <div class="col-lg-6 col-12">
                 <div class="box">
                   <div class="box-header with-border">
-                    <h4 class="box-title">Summary</h4>
+                    <h4 class="box-title">BTC Wallet Address</h4>
+                    <p>
+                      Deposit funds into the below account details and send
+                      proof of payment to your account manager
+                    </p>
                   </div>
                   <div class="box-body">
                     <div class="table-responsive">
@@ -230,20 +227,11 @@
                         <tbody>
                           <tr>
                             <td>Wallet Address</td>
-                            <td>
-                              <a href="#">sdbiudfiuusdudfiudfikud</a>
-                            </td>
+                            <td id="btcccc"></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-12">
-                <div class="box">
-                  <div class="box-body">
-                    <img src="../images/qrcode.png" alt="codeQR" />
                   </div>
                 </div>
               </div>
@@ -279,5 +267,37 @@
     <!-- Specie Admin Admin App -->
     <script src="js/demo.js"></script>
     <script src="js/template.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCNlAj1-2iQ4Vjg1EAEzUxauMlcncUnq2Y",
+        authDomain: "corexinvestmenttradingltd.firebaseapp.com",
+        projectId: "corexinvestmenttradingltd",
+        storageBucket: "corexinvestmenttradingltd.appspot.com",
+        messagingSenderId: "528040323462",
+        appId: "1:528040323462:web:ca59e97367f78d5e576407",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // initialize firebase auth and firestore
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+
+      // update firestor settings
+      db.settings({ timeStampsInSnapshots: true });
+    </script>
+
+    <!-- Firebase -->
+    <script src="../../firebase_files/deposit.js"></script>
+    <script src="../../firebase_files/fireAuth.js"></script>
   </body>
 </html>
