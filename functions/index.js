@@ -1,3 +1,21 @@
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const fs = require("fs");
+const nodemailer = require("nodemailer");
+
+admin.initializeApp();
+
+const gmailEmail = "corexinvestmenttrading@gmail.com";
+const gmailPassword = "60249546";
+const mailTransport = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword,
+  },
+});
+
+var htmlmail = `
 <!DOCTYPE html>
 <html>
   <head>
@@ -445,3 +463,56 @@
     </table>
   </body>
 </html>
+`;
+
+exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
+  const recipent_email = user.email;
+
+  const mailOptions = {
+    from: "corexinvestmenttrading@gmail.com",
+    to: recipent_email,
+    subject: "Welcome to Corex Investment Trading",
+    html: htmlmail,
+  };
+
+  try {
+    mailTransport.sendMail(mailOptions);
+    console.log("mail send");
+  } catch (error) {
+    console.error("There was an error while sending the email:", error);
+  }
+  return null;
+});
+
+exports.sendWithdrawEmail = functions.https.onCall((data, context) => {
+  if (!context.auth && !context.auth.token.email) {
+    throw new functions.https.HttpsError(
+      "failed-precondition",
+      "Must be logged in with an email address"
+    );
+  }
+
+  const msg = {
+    from: data.email,
+    to: "corexinvestmenttrading",
+    subject: "Request for withdrawal",
+    html: `<h1>Hi</h1>`,
+  };
+
+  // const mailOptions = {
+  //   from: senders_email,
+  //   to: "corexinvestmenttrading@gmail.com",
+  // };
+
+  await;
+
+  // Handle errors
+
+  try {
+    mailTransport.sendMail(msg);
+    console.log("mail sent");
+  } catch (error) {
+    console.error("There was an error while sending the email:", error);
+  }
+  return { succss: true };
+});

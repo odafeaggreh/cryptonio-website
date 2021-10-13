@@ -55,6 +55,11 @@ registerForm.addEventListener("submit", (e) => {
             totalDeposit: 0,
             profit: 0,
             totalBalance: 0,
+            phone: 0,
+            street: "",
+            city: "",
+            state: "",
+            postCode: "",
           })
           .then(() => {
             window.location.replace("/account/main/index.html");

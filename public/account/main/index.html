@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <link rel="icon" href="../images/favicon.ico" />
 
-    <title>Cryptonio | Home page</title>
+    <title>Corex Investment Trading | Home page</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="css/vendors_css.css" />
@@ -131,7 +131,7 @@
                       ><i class="ti-user text-muted me-2"></i> Profile</a
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="#" id="navbarLogout"
                       ><i class="ti-lock text-muted me-2"></i> Logout</a
                     >
                   </li>
@@ -174,7 +174,7 @@
                     <i data-feather="monitor"></i><span>Emails</span>
                   </a>
                 </li> -->
-                <li class="treeview">
+                <li class="treeview" id="logout">
                   <a href="#">
                     <i data-feather="power"></i><span>Logout</span>
                   </a>
@@ -585,7 +585,7 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        Cryptonio. All Rights Reserved.
+        Corex Investment Trading. All Rights Reserved.
       </footer>
 
       <!-- Control Sidebar -->
@@ -639,5 +639,6 @@
     <!-- Firebase -->
     <script src="../../firebase_files/dashboard.js"></script>
     <script src="../../firebase_files/fireAuth.js"></script>
+    <script src="../../firebase_files/logout.js"></script>
   </body>
 </html>

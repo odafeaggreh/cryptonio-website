@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <link rel="icon" href="../images/favicon.ico" />
 
-    <title>Cryptonio | Withdrawal page</title>
+    <title>Corex Investment Trading | Withdrawal page</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="css/vendors_css.css" />
@@ -16,6 +16,7 @@
     <!-- Style-->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/skin_color.css" />
+    <link rel="stylesheet" href="css/mystyles.css" />
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
@@ -116,14 +117,7 @@
                   title="User"
                 >
                   <div class="d-flex pt-5">
-                    <div class="text-end me-10">
-                      <p class="pt-5 fs-14 mb-0 fw-700 text-primary">
-                        Johen Doe
-                      </p>
-                      <small class="fs-10 mb-0 text-uppercase text-mute"
-                        >User</small
-                      >
-                    </div>
+                    <div class="text-end me-10" id="userName"></div>
                     <img
                       src="../images/avatar/avatar-1.png"
                       class="avatar rounded-10 bg-primary-light h-40 w-40"
@@ -137,7 +131,7 @@
                       ><i class="ti-user text-muted me-2"></i> Profile</a
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item" href="#" id="navbarLogout"
                       ><i class="ti-lock text-muted me-2"></i> Logout</a
                     >
                   </li>
@@ -180,7 +174,7 @@
                     <i data-feather="monitor"></i><span>Emails</span>
                   </a>
                 </li> -->
-                <li class="treeview">
+                <li class="treeview" id="logout">
                   <a href="#">
                     <i data-feather="power"></i><span>Logout</span>
                   </a>
@@ -222,238 +216,84 @@
           <section class="content">
             <!-- vertical wizard -->
 
-            <!-- Validation wizard -->
-            <div class="box">
-              <div class="box-header with-border">
-                <h4 class="box-title">Step withdrawal form</h4>
-                <h6 class="box-subtitle">
-                  Please enter the correct withdrawal details as we would not be
-                  held liable for any mistakes.
-                </h6>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body wizard-content">
-                <form action="#" class="validation-wizard wizard-circle">
-                  <!-- Step 1 -->
-                  <h6>Personal Info</h6>
-                  <section>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wfirstName2" class="form-label">
-                            First Name : <span class="danger">*</span>
-                          </label>
-                          <input
-                            type="text"
-                            class="form-control required"
-                            id="wfirstName2"
-                            name="firstName"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wlastName2" class="form-label">
-                            Last Name : <span class="danger">*</span>
-                          </label>
-                          <input
-                            type="text"
-                            class="form-control required"
-                            id="wlastName2"
-                            name="lastName"
-                          />
-                        </div>
+            <div class="col-lg-12 col-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h4 class="box-title">
+                    Request for a withdrawal from your available balance
+                  </h4>
+                </div>
+                <!-- /.box-header -->
+                <form class="form" id="withdrawForm">
+                  <div id="message"></div>
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="form-label">Full Name</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter your full name"
+                          id="fullName"
+                        />
+                        <span class="input-group-text"
+                          ><i class="ti-user"></i
+                        ></span>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wemailAddress2" class="form-label">
-                            Email Address : <span class="danger">*</span>
-                          </label>
-                          <input
-                            type="email"
-                            class="form-control required"
-                            id="wemailAddress2"
-                            name="emailAddress"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wphoneNumber2" class="form-label"
-                            >Phone Number :</label
-                          >
-                          <input
-                            type="tel"
-                            class="form-control"
-                            id="wphoneNumber2"
-                          />
-                        </div>
+                    <div class="form-group">
+                      <label class="form-label">Email address</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="Enter your email address"
+                          id="email"
+                        />
+                        <span class="input-group-text"
+                          ><i class="ti-email"></i
+                        ></span>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wlocation2" class="form-label">
-                            Select City : <span class="danger">*</span>
-                          </label>
-                          <select
-                            class="form-select required"
-                            id="wlocation2"
-                            name="location"
-                          >
-                            <option value="">Select City</option>
-                            <option value="India">India</option>
-                            <option value="USA">USA</option>
-                            <option value="Dubai">Dubai</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="wdate2" class="form-label"
-                            >Date of Birth :</label
-                          >
-                          <input type="date" class="form-control" id="wdate2" />
-                        </div>
+                    <div class="form-group">
+                      <label class="form-label">Wallet address</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter wallet address"
+                          id="walletAdd"
+                        />
+                        <span class="input-group-text"
+                          ><i class="ti-lock"></i
+                        ></span>
                       </div>
                     </div>
-                  </section>
-                  <!-- Step 2 -->
-                  <h6>Account details</h6>
-                  <section>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="jobTitle3" class="form-label"
-                            >Company Name :</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control required"
-                            id="jobTitle3"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="webUrl3" class="form-label"
-                            >Company URL :</label
-                          >
-                          <input
-                            type="url"
-                            class="form-control required"
-                            id="webUrl3"
-                            name="webUrl3"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="shortDescription3" class="form-label"
-                            >Short Description :</label
-                          >
-                          <textarea
-                            name="shortDescription"
-                            id="shortDescription3"
-                            rows="6"
-                            class="form-control"
-                          ></textarea>
-                        </div>
+                    <div class="form-group">
+                      <label class="form-label">Amount</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Enter amount to withdraw"
+                          id="amount"
+                        />
+                        <span class="input-group-text"
+                          ><i class="ti-lock"></i
+                        ></span>
                       </div>
                     </div>
-                  </section>
-                  <!-- Step 3 -->
-
-                  <!-- Step 4 -->
-                  <h6>Remark</h6>
-                  <section>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="behName3" class="form-label"
-                            >Behaviour :</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control required"
-                            id="behName3"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="participants3" class="form-label"
-                            >Confidance</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control required"
-                            id="participants3"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="participants4" class="form-label"
-                            >Result</label
-                          >
-                          <select
-                            class="form-select required"
-                            id="participants4"
-                            name="location"
-                          >
-                            <option value="">Select Result</option>
-                            <option value="Selected">Selected</option>
-                            <option value="Rejected">Rejected</option>
-                            <option value="Call Second-time">
-                              Call Second-time
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="decisions2" class="form-label"
-                            >Comments</label
-                          >
-                          <textarea
-                            name="decisions"
-                            id="decisions2"
-                            rows="4"
-                            class="form-control"
-                          ></textarea>
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label">Rate Interviwer :</label>
-                          <div class="c-inputs-stacked">
-                            <input type="checkbox" id="checkbox_6" />
-                            <label for="checkbox_6" class="d-block"
-                              >1 star</label
-                            >
-                            <input type="checkbox" id="checkbox_7" />
-                            <label for="checkbox_7" class="d-block"
-                              >2 star</label
-                            >
-                            <input type="checkbox" id="checkbox_8" />
-                            <label for="checkbox_8" class="d-block"
-                              >3 star</label
-                            >
-                            <input type="checkbox" id="checkbox_9" />
-                            <label for="checkbox_9" class="d-block"
-                              >4 star</label
-                            >
-                            <input type="checkbox" id="checkbox_10" />
-                            <label for="checkbox_10" class="d-block"
-                              >5 star</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="ti-save-alt"></i> Submit
+                    </button>
+                  </div>
                 </form>
               </div>
-              <!-- /.box-body -->
+              <!-- /.box -->
             </div>
-            <!-- /.box -->
           </section>
           <!-- /.content -->
         </div>
@@ -465,7 +305,7 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        Cryptonio. All Rights Reserved.
+        Corex Investment Trading. All Rights Reserved.
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -485,5 +325,38 @@
     <script src="js/template.js"></script>
 
     <script src="js/pages/steps.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCNlAj1-2iQ4Vjg1EAEzUxauMlcncUnq2Y",
+        authDomain: "corexinvestmenttradingltd.firebaseapp.com",
+        projectId: "corexinvestmenttradingltd",
+        storageBucket: "corexinvestmenttradingltd.appspot.com",
+        messagingSenderId: "528040323462",
+        appId: "1:528040323462:web:ca59e97367f78d5e576407",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // initialize firebase auth and firestore
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+
+      // update firestor settings
+      db.settings({ timeStampsInSnapshots: true });
+    </script>
+
+    <!-- Firebase -->
+    <script src="../../firebase_files/withdrawal.js"></script>
+    <script src="../../firebase_files/fireAuth.js"></script>
+    <script src="../../firebase_files/logout.js"></script>
   </body>
 </html>

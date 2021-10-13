@@ -1,6 +1,5 @@
 const userFullName = document.querySelector("#userName");
 const userAccountBalance = document.querySelector("#userAccountBalance");
-console.log(userAccountBalance);
 
 const setUpDashboard = (user) => {
   db.collection("users")
